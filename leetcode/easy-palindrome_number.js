@@ -1,3 +1,7 @@
+/*
+Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+*/
+
 /**
  * @param {number} x
  * @return {boolean}
@@ -26,3 +30,15 @@ var isPalindrome = function(x) {
   // return boolean of comparison
   return x === revNum    
 };
+
+
+// alternate solution with string conversion
+var isPalindrome = function(x) {
+  var val = 0;
+  var str = x.toString();
+
+  for (var i = str.length - 1; i >= 0; i--){
+    val = val * 10 + Number(str[i]);
+  }
+  return x === val
+}
