@@ -51,14 +51,9 @@ var romanToInt = function(s) {
     if (roman[s[charIndex]] < roman[s[charIndex+1]]){
       num += roman[s[charIndex+1]] - roman[s[charIndex]];
       charIndex++
-    } else if (roman[s[charIndex]] == 1 && roman[s[charIndex+1]] == 10){
-      num += 9;
-      charIndex++
     } else {
       num += roman[s[charIndex]]
     }
   }
   return num
-};
-
-console.log(romanToInt("MCMXCIV"))
+}
