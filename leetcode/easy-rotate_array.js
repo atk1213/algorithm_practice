@@ -9,11 +9,21 @@ Could you do it in-place with O(1) extra space?
  * @param {number} k
  * @return {void} Do not return anything, modify nums in-place instead.
  */
+// var rotate = function(nums, k) {
+//   while (k > 0) {
+//       var last = nums.pop();
+//       nums.unshift(last);
+//       k--
+//   }
+//   return nums
+// };
+
+
 var rotate = function(nums, k) {
-  while (k > 0) {
-      var last = nums.pop();
-      nums.unshift(last);
-      k--
-  }
-  return nums
-};
+  do {
+    nums.unshift(nums.pop());
+    k--
+  } while (k > 0)
+}
+
+// rotate([1, 2, 3, 4, 5, 6, 7], 3)
