@@ -20,15 +20,24 @@ Given a sorted array nums, remove the duplicates in-place such that each element
 //   }
 // };
 
+// var removeDuplicates = function(nums) {
+//   var index = 0;
+//   for (var valInd = 1; valInd < nums.length; valInd++){
+//       if (nums[valInd] == nums[valInd - 1]){
+//           index++
+//       } else {
+//           nums[valInd-index] = nums[valInd]
+//       }
+//   }
+//   nums.splice(nums.length-index)
+//   return nums.length
+// };
+
 var removeDuplicates = function(nums) {
-  var index = 0;
-  for (var valInd = 1; valInd < nums.length; valInd++){
-      if (nums[valInd] == nums[valInd - 1]){
-          index++
-      } else {
-          nums[valInd-index] = nums[valInd]
-      }
-  }
-  nums.splice(nums.length-index)
-  return nums.length
+    for (var i = nums.length-1; i >= 0; i--){
+        if (nums[i] == nums[i-1]){
+            nums.splice(i, 1);
+        }
+    }
+    return nums.length
 };
