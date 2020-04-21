@@ -26,3 +26,24 @@ var firstUniqChar = function(s) {
   }
   return s.indexOf(val)
 };
+
+// -----------------------------------------------------------
+
+var firstUniqChar = function(s) {
+    var obj = {};
+    if (s.length < 1){
+        return -1
+    }
+    for(var i = 0; i < s.length; i++){
+        if (obj[s[i]] || obj[s[i]] == 0){
+            obj[s[i]] = -1
+        } else {
+            obj[s[i]] = i
+        }
+    };
+    var arr = Object.values(obj).filter((val) => val >= 0);
+    if (arr.length == 0){
+        return -1
+    }
+    return Math.min(...arr)
+};
